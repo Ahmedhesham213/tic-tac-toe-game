@@ -1,5 +1,5 @@
 let currentPlayer = "X";
-let NUMBER_OF_ROWS = 4;
+let NUMBER_OF_ROWS = 3;
 const turns = NUMBER_OF_ROWS ** 2;
 let turnsCounter = 0;
 const createBoardArray = () => {
@@ -155,9 +155,12 @@ const cellClickHandler = (event, index) => {
 
 const createCell = (index) => {
   const cellElementString = `<div class="cell" role="button" tabindex="${index + 1}"><span class="value"></span></div>`;
-  const cellElement = document.createRange().createContextualFragment(cellElementString);
+  const cellElement = document
+    .createRange()
+    .createContextualFragment(cellElementString);
 
-  cellElement.querySelector(".cell").onclick = (event) => cellClickHandler(event, index);
+  cellElement.querySelector(".cell").onclick = (event) =>
+    cellClickHandler(event, index);
   cellElement.querySelector(".cell").onkeydown = (event) =>
     event.key === "Enter" ? cellClickHandler(event, index) : true;
 
